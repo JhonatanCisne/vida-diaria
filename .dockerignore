@@ -1,0 +1,37 @@
+# Ignoramos target porque el Dockerfile hará su propio 'mvn package'
+target/
+bin/
+out/
+
+# Evita que tus API Keys y contraseñas locales se suban a la imagen
+.env
+*.env
+.secrets/
+
+# --- Archivos del IDE (Basura de entorno) ---
+# Esto solo sirve para tu VS Code o IntelliJ local
+.idea/
+.vscode/
+*.iml
+*.swp
+.classpath
+.project
+.settings/
+
+# --- Control de Versiones ---
+.git/
+.gitignore
+
+# --- Archivos de Docker (No se necesitan dentro del contenedor) ---
+# Tu imagen no necesita llevar una copia de sus propios planos
+Dockerfile
+docker-compose.yml
+compose.yaml
+docker/
+
+# --- Documentación y Logs ---
+*.log
+HELP.md
+.mvn/
+mvnw
+mvnw.cmd

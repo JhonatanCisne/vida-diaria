@@ -1,47 +1,48 @@
-HELP.md
+### Java & Maven ###
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!.mvn/wrapper/maven-wrapper.jar
+/build/
+HELP.md
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+### gRPC / Protobuf ###
+# El código generado en target/ ya está cubierto arriba, 
+# pero añadimos esto por seguridad si usas plugins externos.
+.protoc-cache/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+out/
 
 ### VS Code ###
 .vscode/
+bin/
+*.code-workspace
 
-### Spring Configuration ###
-# Ignorar el archivo de configuración real (donde irán tus claves de Postgres)
-src/main/resources/application.properties
-src/main/resources/application.yml
+### OS (Windows/Mac) ###
+Thumbs.db
+.DS_Store
 
-# Ignorar archivos de configuración específicos de entorno
-src/main/resources/application-*.properties
-src/main/resources/application-*.yml
+### Docker & Infrastructure ###
+# Ignorar los datos persistentes de la base de datos si usas volúmenes locales
+postgres_data/
+*.tar
 
-### Docker & Secrets ###
-# Si usas variables de entorno en archivos .env
+### Secrets & Environment ###
+# Ignorar valores reales de configuración
 .env
 .env.local
+.env.*.local
+# Archivos de respaldo de variables
+*.sh
+
+### Spring Configuration ###
+# NO ignoramos application.yml porque usa variables de entorno ${...}
+# Solo ignoramos si creas archivos específicos con credenciales harcodeadas:
+# src/main/resources/application-local.yml
+
+### Logs ###
+*.log
+logs/

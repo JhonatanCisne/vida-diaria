@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// Opciones para generar el código Java correctamente
+option java_multiple_files = true;
+option java_package = "com.vida.usuario.grpc";
+option java_outer_classname = "UsuarioProto";
+
+// Definimos el paquete
+package usuario;
+
+// Nuestro servicio gRPC principal
+service UsuarioService {
+  rpc GetUsuario (UsuarioRequest) returns (UsuarioResponse);
+}
+
+// Mensaje de petición
+message UsuarioRequest {
+  string id = 1;
+}
+
+// Mensaje de respuesta
+message UsuarioResponse {
+  string id = 1;
+  string nombre = 2;
+  string email = 3;
+}
