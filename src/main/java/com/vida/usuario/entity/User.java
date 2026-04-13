@@ -6,14 +6,16 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import jakarta.validation.constraints.Email;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 
-@Table(name = "usuarios",schema = "usuarios")
-public class User {
+@Table(name = "users",schema = "users")
+public class User implements Serializable {
+    private static final long serialVersionUID=1L;
+
     public static final int NOMBRE_MAXI=90;
     public static final int EMAIL_MAX=120;
     public static final int TEL_MAX=20;
